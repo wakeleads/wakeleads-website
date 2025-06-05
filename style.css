@@ -1,0 +1,301 @@
+/* =============================================================================
+   GLOBAL RESET + BASIC STYLING
+   ============================================================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* enable smooth scrolling */
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #ffffff;
+    color: #333333;
+  }
+  
+  /* =============================================================================
+     VARIABLES (Futuristic Blue + White Palette)
+     ============================================================================= */
+  :root {
+    --blue-primary: #005bff;
+    --blue-light: #00a8ff;
+    --gray-light: #f5f6f8;
+    --gray-medium: #e0e4e8;
+    --text-dark: #111111;
+    --text-muted: #555555;
+  }
+  
+  /* =============================================================================
+     TYPOGRAPHY
+     ============================================================================= */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  
+  /* =============================================================================
+     NAVIGATION BAR (With Brand on Left)
+     ============================================================================= */
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* brand on left, links on right */
+    align-items: center;
+    padding: 1rem 1rem; /* equal left/right padding */
+  }
+  
+  /* Brand / Site Name on the Left */
+  .nav-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--blue-primary);
+  }
+  
+  /* Navigation links on the Right */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links li a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: color 0.2s ease-in-out;
+  }
+  .nav-links li a:hover {
+    color: var(--blue-primary);
+  }
+  .nav-links li a.active {
+    color: var(--blue-light);
+    font-weight: 600;
+  }
+  
+  /* =============================================================================
+     HERO / HOME SECTION
+     ============================================================================= */
+  .hero-section {
+    min-height: calc(100vh - 4rem);
+    background: var(--gray-light);
+  
+    /* Center both items horizontally with a gap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  
+    padding: 2rem 1.5rem;
+    padding-top: 6rem; /* leave space under header */
+  }
+  
+  /* On narrower screens, stack vertically */
+  @media (max-width: 991px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 100%;
+    }
+    .hero-image {
+      display: none; /* hide large image on small screens */
+    }
+  }
+  
+  .hero-content {
+    max-width: 500px;
+    z-index: 2;
+  }
+  
+  /* Main title */
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero-title .text-blue {
+    color: var(--blue-primary);
+  }
+  
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+  }
+  
+  /* Primary button */
+  .btn-primary {
+    display: inline-block;
+    background: var(--blue-primary);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  .btn-primary:hover {
+    background: var(--blue-light);
+    box-shadow: 0 0 15px rgba(0, 91, 255, 0.4);
+  }
+  
+  /* Hero image (logo graphic) */
+  /* Shown only on large screens (≥992px) */
+  .hero-image {
+    display: block;
+    width: 300px; /* fixed width, so it sits close to text */
+  }
+  .hero-image img.hero-graphic {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* =============================================================================
+     SECTION TITLES
+     ============================================================================= */
+  section {
+    padding: 4rem 1.5rem;
+  }
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    text-align: center;
+    position: relative;
+  }
+  section h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: var(--blue-primary);
+    display: block;
+    margin: 0.5rem auto 0;
+  }
+  
+  /* =============================================================================
+     ABOUT SECTION
+     ============================================================================= */
+  .about-section {
+    background: #ffffff;
+  }
+  .about-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+  .about-section ul {
+    list-style: disc inside;
+    margin-top: 1rem;
+  }
+  .about-section li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* =============================================================================
+     SERVICES SECTION
+     ============================================================================= */
+  .services-section {
+    background: var(--gray-medium);
+  }
+  .services-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Service cards container */
+  .service-cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .service-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .card h3 {
+    margin-bottom: 0.75rem;
+    color: var(--blue-primary);
+  }
+  .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  
+  /* =============================================================================
+     CONTACT SECTION
+     ============================================================================= */
+  .contact-section {
+    background: #ffffff;
+  }
+  .contact-section .container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-section p {
+    margin-bottom: 2rem;
+  }
+  .contact-section .calendly-inline-widget {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  /* =============================================================================
+     FOOTER
+     ============================================================================= */
+  .footer {
+    background: var(--gray-light);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .footer a {
+    color: var(--blue-primary);
+    margin: 0 0.5rem;
+  }
